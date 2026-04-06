@@ -187,6 +187,7 @@ search_queries:
 
   # -- Regional example: India --
   - name: India - AI Roles
+    # Keep Bengaluru + Bangalore for recall because job boards use both spellings
     query: 'site:job-boards.greenhouse.io OR site:jobs.ashbyhq.com OR site:naukri.com ("AI Engineer" OR "Solutions Architect" OR "Product Manager") ("India" OR "Bengaluru" OR "Bangalore" OR "Hyderabad" OR "Pune" OR "Mumbai" OR "Gurugram" OR "Chennai")'
     enabled: false
 

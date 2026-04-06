@@ -53,7 +53,7 @@ Los niveles son aditivos — se ejecutan todos, los resultados se mezclan y dedu
 El scanner está diseñado para ser **config-driven**. Para adaptarlo a India o cualquier otro mercado:
 
 1. **Cambiar `title_filter`** para incluir títulos comunes en tu mercado objetivo.
-2. **Añadir geo-keywords** en `search_queries` como `"India"`, `"Bengaluru"`, `"Bangalore"`, `"Hyderabad"`, `"Pune"`, `"Mumbai"`, `"Gurugram"`, `"Chennai"`.
+2. **Añadir keywords geográficas** en `search_queries` como `"India"`, `"Bengaluru"`, `"Bangalore"`, `"Hyderabad"`, `"Pune"`, `"Mumbai"`, `"Gurugram"`, `"Chennai"`.
 3. **Priorizar portales públicos del mercado local** en `search_queries` y `tracked_companies`.
 4. **Guardar `careers_url` locales** cuando una empresa tenga una página de jobs específica por país o región.
 5. **Usar notas en `tracked_companies`** para recordar si una empresa contrata en India, pide presencialidad en una ciudad concreta, o tiene una entidad legal local.
