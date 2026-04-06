@@ -134,6 +134,25 @@ The scanner comes with **45+ companies** ready to scan and **19 search queries**
 
 **Job boards searched:** Ashby, Greenhouse, Lever, Wellfound, Workable, RemoteFront
 
+## Scanner Strategy and Regional Customization
+
+The repo uses a **three-layer discovery stack** for job scraping:
+
+1. **Playwright first** for direct company career pages (`careers_url`) and SPA-based boards
+2. **Greenhouse API second** when structured JSON is available
+3. **WebSearch last** for broad discovery across public job boards
+
+This means the scanner prefers live public sources over stale indexed results, then deduplicates everything against your tracker and pipeline.
+
+To adapt it for an Indian context, you usually do **not** need new code — just update `portals.yml`:
+
+- add India-specific location tokens like `India`, `Bengaluru`, `Hyderabad`, `Pune`, `Mumbai`, `Gurugram`, `Chennai`
+- add local job boards or company career pages relevant to your market
+- tune `title_filter` to the role names used in India for your target jobs
+- track companies that actively hire in India and save their local `careers_url`
+
+For portals that require authentication (for example LinkedIn or private Workday flows), use them as discovery signals rather than primary automated sources. If the JD is not publicly accessible, ask the user to paste the text or save it to `jds/` and process it as a local file instead of relying on recurring scans behind login walls.
+
 ## Dashboard TUI
 
 The built-in terminal dashboard lets you browse your pipeline visually:

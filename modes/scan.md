@@ -48,6 +48,26 @@ Los `search_queries` con `site:` filters cubren portales de forma transversal (t
 
 Los niveles son aditivos — se ejecutan todos, los resultados se mezclan y deduplicar.
 
+## Adaptación regional (ej: India)
+
+El scanner está diseñado para ser **config-driven**. Para adaptarlo a India o cualquier otro mercado:
+
+1. **Cambiar `title_filter`** para incluir títulos comunes en tu mercado objetivo.
+2. **Añadir geo-keywords** en `search_queries` como `"India"`, `"Bengaluru"`, `"Bangalore"`, `"Hyderabad"`, `"Pune"`, `"Mumbai"`, `"Gurugram"`, `"Chennai"`.
+3. **Priorizar portales públicos del mercado local** en `search_queries` y `tracked_companies`.
+4. **Guardar `careers_url` locales** cuando una empresa tenga una página de jobs específica por país o región.
+5. **Usar notas en `tracked_companies`** para recordar si una empresa contrata en India, pide presencialidad en una ciudad concreta, o tiene una entidad legal local.
+
+Ejemplo:
+
+```yaml
+- name: India — AI Roles
+  query: 'site:job-boards.greenhouse.io OR site:jobs.ashbyhq.com OR site:naukri.com ("AI Engineer" OR "Solutions Architect" OR "Product Manager") ("India" OR "Bengaluru" OR "Hyderabad" OR "Pune")'
+  enabled: true
+```
+
+La lógica del scanner no cambia: solo cambian las URLs, queries, y keywords de filtrado.
+
 ## Workflow
 
 1. **Leer configuración**: `portals.yml`
@@ -112,6 +132,22 @@ Regex genérico: `(.+?)(?:\s*[@|—–-]\s*|\s+at\s+)(.+?)$`
 Si se encuentra una URL no accesible públicamente:
 1. Guardar el JD en `jds/{company}-{role-slug}.md`
 2. Añadir a pipeline.md como: `- [ ] local:jds/{company}-{role-slug}.md | {company} | {title}`
+
+## Portales con auth obligatorio (LinkedIn, Workday privado, etc.)
+
+El scanner prioriza **fuentes públicas y reproducibles**. Si un portal requiere login:
+
+1. **NO depender de esa URL** para scans automáticos recurrentes.
+2. Intentar primero una fuente pública equivalente:
+   - careers page de la empresa
+   - Greenhouse API / Ashby / Lever pública
+   - WebSearch con `site:` filters
+3. Si el contenido solo existe tras login:
+   - pedir al usuario que pegue el texto del JD, o
+   - guardar el JD manualmente en `jds/` y referenciarlo como `local:jds/...`
+4. Registrar en el resumen que esa fuente requiere auth para que el usuario decida si merece seguimiento manual.
+
+**LinkedIn en particular:** usarlo como señal de descubrimiento o outreach, pero no como fuente principal del JD si la vacante no es accesible públicamente.
 
 ## Scan History
 

@@ -38,7 +38,7 @@ Procesa URLs de ofertas acumuladas en `data/pipeline.md`. El usuario agrega URLs
 3. **WebSearch (último recurso):** Buscar en portales secundarios que indexan el JD.
 
 **Casos especiales:**
-- **LinkedIn**: Puede requerir login → marcar `[!]` y pedir al usuario que pegue el texto
+- **Portales con auth** (LinkedIn, Workday privado, etc.): si el JD no es accesible públicamente → marcar `[!]` y pedir al usuario que pegue el texto o guardarlo en `jds/` como `local:`
 - **PDF**: Si la URL apunta a un PDF, leerlo directamente con Read tool
 - **`local:` prefix**: Leer el archivo local. Ejemplo: `local:jds/linkedin-pm-ai.md` → leer `jds/linkedin-pm-ai.md`
 
