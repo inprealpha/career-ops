@@ -144,7 +144,7 @@ The repo uses a **three-layer discovery stack** for job scraping:
 
 This means the scanner prefers live public sources over stale indexed results, then deduplicates everything against your tracker and pipeline.
 
-To adapt it for an Indian context, you usually do **not** need new code — just update `portals.yml`:
+To adapt it for an India-specific context, you usually do **not** need new code — just update `portals.yml`:
 
 - add India-specific location tokens like `India`, `Bengaluru`, `Hyderabad`, `Pune`, `Mumbai`, `Gurugram`, `Chennai`
 - add local job boards or company career pages relevant to your market
