@@ -16,7 +16,7 @@
 #   5. Set enabled: false on companies you don't care about
 #
 # REGIONAL CUSTOMIZATION (example: India):
-#   - Add geo tokens like "India", "Bengaluru", "Bangalore", "Hyderabad", "Pune", "Mumbai"
+#   - Add location tokens like "India", "Bengaluru", "Bangalore", "Hyderabad", "Pune", "Mumbai", "Gurugram", "Chennai"
 #   - Add region-specific portals (example below includes Naukri)
 #   - Prefer public company careers pages over auth-only portals
 #   - For LinkedIn / private Workday flows, save the JD to jds/ and use local: entries
