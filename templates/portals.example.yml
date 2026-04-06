@@ -14,6 +14,12 @@
 #   3. Add/remove companies in tracked_companies
 #   4. Adjust search_queries for your preferred job boards
 #   5. Set enabled: false on companies you don't care about
+#
+# REGIONAL CUSTOMIZATION (example: India):
+#   - Add location tokens like "India", "Bengaluru", "Bangalore", "Hyderabad", "Pune", "Mumbai", "Gurugram", "Chennai"
+#   - Add region-specific portals (example below includes Naukri)
+#   - Prefer public company careers pages over auth-only portals
+#   - For LinkedIn / private Workday flows, save the JD to jds/ and use local:jds/{filename} entries
 
 # -- Title filter --
 # The scanner uses these keywords to decide if a title is relevant.
@@ -179,10 +185,17 @@ search_queries:
     query: 'site:remotefront.com "AI Engineer" OR "Solutions Engineer" OR "Automation" OR "LLM" OR "Agent" remote'
     enabled: true
 
+  # -- Regional example: India --
+  - name: India - AI Roles
+    # Keep Bengaluru + Bangalore for recall because job boards use both spellings
+    query: 'site:job-boards.greenhouse.io OR site:jobs.ashbyhq.com OR site:naukri.com ("AI Engineer" OR "Solutions Architect" OR "Product Manager") ("India" OR "Bengaluru" OR "Bangalore" OR "Hyderabad" OR "Pune" OR "Mumbai" OR "Gurugram" OR "Chennai")'
+    enabled: false
+
 # -- Tracked companies --
 # Companies whose career pages are checked directly.
 # scan_method: playwright (default), websearch, greenhouse_api
 # For Greenhouse companies, add api: field for faster structured JSON access.
+# notes can include region hints like "India hiring" or "Bengaluru hybrid"
 
 tracked_companies:
 

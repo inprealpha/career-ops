@@ -33,6 +33,15 @@ Copy from `templates/portals.example.yml` and customize:
 3. **search_queries**: WebSearch queries for job boards (Ashby, Greenhouse, Lever)
 4. **tracked_companies**: Companies to check directly
 
+For geography-specific searches (for example India), keep the same scanner strategy and localize the config:
+
+- Add city/country tokens like `India`, `Bengaluru`, `Hyderabad`, `Pune`, `Mumbai`, `Gurugram`, `Chennai`
+- Add local portals or aggregators to `search_queries`
+- Prefer company `careers_url` pages that expose India-specific openings
+- Use `notes` in `tracked_companies` to record region, work authorization, or office expectations
+
+For portals that require authentication (for example some LinkedIn or Workday flows), treat them as manual-input sources rather than automated scanner sources. Prefer a public careers page or API when available; otherwise save the JD into `jds/` and process it via a `local:` pipeline entry.
+
 ## CV Template (templates/cv-template.html)
 
 The HTML template uses these design tokens:
