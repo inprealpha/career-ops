@@ -19,7 +19,7 @@
 #   - Add location tokens like "India", "Bengaluru", "Bangalore", "Hyderabad", "Pune", "Mumbai", "Gurugram", "Chennai"
 #   - Add region-specific portals (example below includes Naukri)
 #   - Prefer public company careers pages over auth-only portals
-#   - For LinkedIn / private Workday flows, save the JD to jds/ and use local: entries
+#   - For LinkedIn / private Workday flows, save the JD to jds/ and use local:jds/{filename} entries
 
 # -- Title filter --
 # The scanner uses these keywords to decide if a title is relevant.
