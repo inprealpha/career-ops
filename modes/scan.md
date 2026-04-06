@@ -61,7 +61,7 @@ El scanner está diseñado para ser **config-driven**. Para adaptarlo a India o 
 Ejemplo:
 
 ```yaml
-- name: India — AI Roles
+- name: India - AI Roles
   query: 'site:job-boards.greenhouse.io OR site:jobs.ashbyhq.com OR site:naukri.com ("AI Engineer" OR "Solutions Architect" OR "Product Manager") ("India" OR "Bengaluru" OR "Bangalore" OR "Hyderabad" OR "Pune" OR "Mumbai" OR "Gurugram" OR "Chennai")'
   enabled: true
 ```
